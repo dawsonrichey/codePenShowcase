@@ -4,62 +4,78 @@
   <meta charset="UTF-8">
   <title>Datatable export AWESOME</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <!-- Other CSS -->
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
-<link rel='stylesheet' href='https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css'>
-<link rel='stylesheet' href='https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css'>
-<link rel="stylesheet" href="./style.css">
-<!-- Include after jQuery and DataTables core JS -->
-
-<!-- Or use the version matching your DataTables install -->
-
-<!-- Include in your <head> after core DataTables CSS -->
+  <link rel='stylesheet' href='https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css'>
+  <link rel='stylesheet' href='https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css'>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/colreorder/1.7.0/css/colReorder.dataTables.min.css">
-  <!-- Adjust path/version as needed. If using Bootstrap integration, use the appropriate ColReorder CSS for that theme -->
+  <link rel="stylesheet" href="./style.css"> <!-- Keep this last -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-
-
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<h3 class="table-title">Cool Table</h3>
-<div class="csv-controls" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; background-color: #f9f9f9; border-radius: 4px;">
-    <span style="margin-right: 10px;">Current File: <strong id="current-csv-filename">None</strong></span>
-    <label for="csv-upload-input" class="btn btn-sm btn-info">
-        <i class="fa fa-upload"></i> Upload New CSV
-    </label>
-    <input type="file" id="csv-upload-input" accept=".csv" style="display: none;">
-</div>
+<!-- Wrap content in a container for proper alignment and padding -->
+<div class="container mt-4">
 
-<!-- New Column Visibility Toggles -->
-<div id="column-toggles" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; background-color: #f0f0f0; border-radius: 4px;">
-    <strong>Toggle Columns:</strong>
-    <div id="toggle-buttons-container" style="margin-top: 5px; display: flex; flex-wrap: wrap; gap: 5px;">
-        <!-- Toggles will be dynamically added here by JavaScript -->
-        <span class="text-muted">Loading headers...</span>
+    <h3 class="table-title mb-3">Cool Table</h3>
+
+    <!-- Use Bootstrap card for controls -->
+    <div class="card mb-3">
+        <div class="card-body">
+            <span class="me-3">Current File: <strong id="current-csv-filename">None</strong></span>
+            <label for="csv-upload-input" class="btn btn-sm btn-info">
+                <i class="fa fa-upload"></i> Upload New CSV
+            </label>
+            <input type="file" id="csv-upload-input" accept=".csv" style="display: none;">
+        </div>
     </div>
-</div>
 
-<!-- Your existing table structure -->
-<table id="mainTable" class="display" style="width:100%">
-  <thead>
-      <!-- Your table headers (thead) should ideally be here -->
-      <!-- DataTables will generate headers if 'columns' option is used and thead is empty -->
-       <tr>
-          <!-- Example Headers - Adjust if needed, or leave empty if columns are defined in JS -->
-          <!-- <th>Header 1</th> -->
-          <!-- <th>Header 2</th> -->
-       </tr>
-  </thead>
-  <tbody>
-      <!-- Keep this empty - DataTables will populate it -->
-  </tbody>
-</table>
+    <!-- Use Bootstrap card for toggles -->
+    <div id="column-toggles" class="card mb-3">
+         <div class="card-header">
+            <strong>Toggle Columns:</strong>
+         </div>
+        <div class="card-body">
+            <div id="toggle-buttons-container" style="display: flex; flex-wrap: wrap; gap: 5px;">
+                <!-- Toggles will be dynamically added here by JavaScript -->
+                <span class="text-muted">Loading headers...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Your existing table structure -->
+    <table id="mainTable" class="table table-striped table-bordered display" style="width:100%">
+      <thead>
+          <!-- Your table headers (thead) should ideally be here -->
+          <!-- DataTables will generate headers if 'columns' option is used and thead is empty -->
+           <tr>
+              <!-- Example Headers - Adjust if needed, or leave empty if columns are defined in JS -->
+              <!-- <th>Header 1</th> -->
+              <!-- <th>Header 2</th> -->
+           </tr>
+      </thead>
+      <tbody>
+          <!-- Keep this empty - DataTables will populate it -->
+      </tbody>
+    </table>
+</div> <!-- Close container -->
 
 
 
 
 
+<!-- Other Scripts -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+
+<!-- Bootstrap Bundle JS (includes Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<!-- DataTables and other JS -->
 <script src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'></script>
 <script src='https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js'></script>
