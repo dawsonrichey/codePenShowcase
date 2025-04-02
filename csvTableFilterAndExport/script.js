@@ -40,6 +40,7 @@ var languageConfig = // Renamed from 'idioma' for clarity
 // Global variable to hold the DataTable instance
 var dataTableInstance = null;
 var currentFileName = 'tableData.csv'; // Default initial file
+var currentFileName = 'https://raw.githubusercontent.com/dawsonrichey/codePenShowcase/79cbc5eb8e52ce1624646a68da163c04ae0e57f6/csvTableFilterAndExport/tableData.csv'; // Default initial file
 
 // --- NEW: Function to generate column toggles ---
 function generateColumnToggles() {
