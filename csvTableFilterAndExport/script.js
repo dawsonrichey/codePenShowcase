@@ -273,6 +273,9 @@ function loadAndProcessCSV(fileSource, isFileUpload = false) {
                  }
             }
         });
+        // Populate Toggle Buttons with content from new file
+        const headerElement = document.querySelector(headerSelector);
+        headerElement.click();
     };
 
     reader.onerror = function (e) {
@@ -327,9 +330,45 @@ $(document).ready(function() {
             console.log("File selected via upload:", file.name);
             if (file.type === "text/csv" || file.name.toLowerCase().endsWith('.csv')) {
                  loadAndProcessCSV(file, true); // Process the uploaded file
+                 
             } else {
                  alert("Please select a CSV file.");
+                 $('#csv-upload-input').val(null);
             }
         }
+
     });
+
 });
+
+
+function triggerDelayedHeaderClick(headerSelector, delay) {
+    // Wait for the page to fully load
+    window.onload = function () {
+        // Set a delay before triggering the click
+        setTimeout(function () {
+            // Find the header element using the provided selector
+            const headerElement = document.querySelector(headerSelector);
+
+            // Check if the header element was found
+            if (headerElement) {
+                // Simulate a click on the header element
+                headerElement.click();
+                console.log("Programmatic click triggered on:", headerElement);
+            } else {
+                console.error(
+                    "Could not find the table header with selector:",
+                    headerSelector
+                );
+            }
+        }, delay);
+    };
+}
+
+const headerSelector = "table th:first-child";
+
+const delayInMilliseconds = 500;
+
+// Call the function to trigger the delayed click.
+triggerDelayedHeaderClick(headerSelector, delayInMilliseconds);
+
