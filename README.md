@@ -10,9 +10,8 @@
 This is a showcase of my codePen projects.
 
 
-## Table of Contents
-Projects links
-
+## Projects links
+[csvTableFilterAndExport](https://dawsons-geek.com/codepen/csvTableFilterAndExport)
 
 
 ### To Do List
